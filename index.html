@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="jornal.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bruna Correia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Dosis', Arial, sans-serif;
+      background-color: #ebe6ea; /* Cor de fundo pastel clara */
+      color: #000000; /* Cor de texto mais suave */
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #ebe6ea; /* Azul pastel */
+      color: #1c0129; /* Cor de texto mais suave */
+      padding: 20px 0;
+      border-bottom: 1px solid #5d0088;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background-color 0.3s ease; /* Transição de cor de fundo */
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2em;
+      cursor: pointer;
+      color: #5d0088;
+      text-align: center;
+      padding: 10px;
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 2em;
+      font-weight: 600;
+      animation: fadeIn 2s ease-out; /* Animação de fade-in */
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #3d3d3d;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #520569; /* Cor pastel de destaque */
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 100px auto 20px;
+      padding: 20px;
+      background: #eedfeb;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      border-bottom: 2px solid #f8e5e5;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      color: #000000;
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    #reports-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .report {
+      flex: 1 1 calc(33.333% - 20px);
+      display: flex;
+      align-items: center;
+      background: #ebe6ea; /* Azul pastel claro */
+      border: 1px solid #5d009b; /* Bordas sutis */
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      padding: 15px;
+    }
+
+    .report:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .report img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-right: 15px;
+      border-radius: 4px;
+    }
+
+    .report h3 {
+      margin: 0;
+      font-size: 0.9em;
+      color: #161010;
+    }
+
+    .report a {
+      text-decoration: none;
+      color: #480555; /* Cor pastel de destaque */
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .report a:hover {
+      color: #0a0a01; /* Cor pastel mais escura de destaque */
+    }
+
+    footer {
+      background: #e2dcf8; /* Azul pastel */
+      color: #000000;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #dcdcdc;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .social-icons {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .social-icons li {
+      margin: 0 10px;
+    }
+
+    .social-icons a {
+      color: #400158;
+      font-size: 1.5em;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #d3bfd0; /* Cor pastel mais escura de destaque */
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+
+    /* Animação de fade-in */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Imagens Responsivas */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Carregamento Lento (Lazy Loading) */
+    .lazyload {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    .lazyload.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <h1 class="animate__animated animate__fadeIn">Portifólio de reportagens</h1>
+    <nav>
+      <ul id="menu">
+        <li><a href="#reports"> </a></li>
+    
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="reports" class="section">
+    
+      <div id="reports-container">
+        <!-- Reportagens serão adicionadas aqui dinamicamente -->
+      </div>
+    </section>
+    <section id="contact" class="section">
+      <h2> Sobre mim</h2>
+      <p> Meu nome é Bruna Correia e sou estudante de jornalismo na USP. Gosto de cozinhar e fiz esse site à mão.  Se quiser entrar em contato, é só enviar um e-mail para: brunacorreiade@gmail.com ou brunacorreia@usp.br </a></p>
+    </section>
+    <section id="about" class="section">
+  
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Bruna Correia (site feito à mão)</p>
+    <ul class="social-icons">
+      <li><a href="https://www.instagram.com/brunacorreiade" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/brunacorreiade" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="https://github.com/brunacorreiade" target="_blank"><i class="fab fa-github"></i></a></li>
+    </ul>
+  </footer>
+  <script>
+    // Dados das reportagens
+    const reports = [
+      {
+        title: "Alckmin aposta em memes e linguagem jovem para aumentar popularidade",
+        image: "https://bit.ly/alckminmememememe",
+        link: "https://ultimosegundo.ig.com.br/brasil/2024-01-15/com-ajuda-dos-memes--alckmin-viraliza-nas-redes-sociais.html"
+      },
+      {
+        title: "Conferências do “USP Pensa Brasil” atraem público das cinco regiões do País",
+        image: "https://bit.ly/3MtmFCo",
+        link: "https://jornal.usp.br/universidade/conferencias-do-usp-pensa-brasil-atraem-publico-das-cinco-regioes-do-pais"
+      },
+      {
+        title: "Prefeitura de Taboão da Serra reduz em 63% verba para prevenção de desastres naturais",
+        image: "https://bit.ly/4e0VT00",
+        link: "https://tabjornalismo.com.br/prefeitura-de-taboao-da-serra-reduz-em-63-verba-para-prevencao-de-desastres-naturais/"
+      },
+      {
+        title: "Reforma tributária: entenda o porquê da mudança ser histórica",
+        image: "https://bit.ly/3XafBQf",
+        link: "https://economia.ig.com.br/2023-12-20/reforma-tributaria--entenda-o-porque-da-mudanca-ser-historica.html"
+      },
+      {
+        title: "Orgânicos produzidos no Brasil não conseguem suprir demanda interna",
+        image: "https://bit.ly/4e3DjnZ",
+        link: " https://economia.ig.com.br/2023-11-24/organicos-produzidos-no-brasil-nao-conseguem-suprir-demanda-interna.html"
+      },
+      {
+        title: "”Eu sou só mais uma em um mar de terceirizados no país”, diz Maria",
+        image: "https://bit.ly/3X9AHhL",
+        link: "https://jornalismojunior.com.br/entenda-terceirizacao-no-brasil/"
+      },
+      {
+        title: "Burocracia é principal barreira para produção de orgânicos no Brasil",
+        image: "https://www.anf.org.br/wp-content/uploads/2024/08/feira.webp",
+        link: "https://www.anf.org.br/burocracia-e-principal-barreira-para-producao-de-organicos-no-brasil/"
+      },
+      {
+        title: "Grupo Wagner e Vladimir Putin: um novo capítulo na Guerra da Ucrânia",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKXCNo8_KjQ3jAFxSTFN-S-1Ab9f-q_XON2w&s",
+        link: "https://jornalismojunior.com.br/grupo-wagner-putin-novo-capitulo-guerra-da-ucrania/"
+      },
+      {
+        title: "Por que a quantidade nos produtos diminui e o preço permanece o mesmo?",
+        image: "https://i0.statig.com.br/bancodeimagens/ea/ma/90/eama90mo4i6qn6l2nkidt9t6n.jpg",
+        link: "https://economia.ig.com.br/2023-10-02/por-que-a-quantidade-nos-produtos-sempre-diminui-e-o-preco-permanece-o-mesmo.html"
+      },
+      {
+        title: "Entenda a proposta da Fazenda para as dívidas dos Estados",
+        image: "https://i0.statig.com.br/bancodeimagens/30/nb/3s/30nb3s87y5c50006ff6hhzt82.jpg",
+        link: "https://economia.ig.com.br/2024-03-26/entenda-a-proposta-da-fazenda-para-as-dividas-dos-estados.html"
+      },
+      {
+        title: "Algoritmos são novas instituições que afetam a sociedade, diz estudo",
+        image: "https://bit.ly/celularcelularig",
+        link: "https://tecnologia.ig.com.br/2023-12-11/algoritmos-influenciam-da-mesma-forma-que-a-igreja--afirma-estudo.html"
+      },
+      {
+        title: "Plano Real faz 30 anos: legado é positivo, mas inflação ainda preocupa",
+        image: "https://bit.ly/4e1ppTq",
+        link: "https://economia.ig.com.br/2024-01-06/plano-real--mesmo-com-legado-positivo--a-inflacao-ainda-preocupa.html"
+      },
+      {
+        title: "Brasil possui 1,5 milhão de pessoas trabalhando por aplicativos",
+        image: "https://i0.statig.com.br/bancodeimagens/7x/ei/8r/7xei8rhbgow8ybr3io98d4d9q.jpg",
+        link: "https://economia.ig.com.br/2023-11-30/1-5-milhao-de-brasileiros-trabalham-com-aplicativos--quais-os-impactos-na-economia-do-brasil-.html"
+      },
+      {
+        title: "Picanha, filé-mignon, porco... Por que o preço da carne está caindo?",
+        image: "https://i0.statig.com.br/bancodeimagens/es/r4/qb/esr4qbxsa2vw5ph6uwuyu6hsf.jpg",
+        link: "https://economia.ig.com.br/2023-09-22/por-que-o-preco-das-carnes-esta-caindo-no-brasil-.html"
+      },
+      {
+        title: "Como o Bolsa Família foi essencial para tirar o Brasil do mapa da fome",
+        image: "https://i0.statig.com.br/bancodeimagens/dw/41/o1/dw41o19n3wo7rcma4qqwi2sm4.jpg",
+        link: "https://economia.ig.com.br/2023-10-13/bolsa-familia--como-o-programa-foi-essencial-para-tirar-o-brasil-do-mapa-da-fome.html"
+      },
+      {
+        title: "Instrumento do IBGE pode auxiliar na gestão de recursos hídricos, aponta estudo",
+        image: "https://jornalismojunior.com.br/wp-content/webp-express/webp-images/uploads/2023/11/6753f696-fbcc-4b06-bb09-7287ccb167ab-1024x576.jpg.webp",
+        link: "https://jornalismojunior.com.br/instrumento-do-ibge-pode-auxiliar-na-gestao-de-recursos-hidricos-aponta-estudo/"
+      },
+      {
+        title: "Pesquisa mostra soluções ineficientes do governo em meio ao crescente conflito por acesso à água",
+        image: "https://jornalismojunior.com.br/wp-content/webp-express/webp-images/uploads/2023/11/469ae501-ba66-4fe9-93ec-485b6d1e8879-1024x682.jpg.webp",
+        link: "https://jornalismojunior.com.br/pesquisa-mostra-solucoes-ineficientes-do-governo-em-meio-ao-crescente-conflito-por-acesso-a-agua/"
+      },
+      {
+        title: "Sabesp: manifestantes acusam deputados do PL de influenciar prisões",
+        image: "https://bit.ly/479qN4j",
+        link: "https://ultimosegundo.ig.com.br/brasil/2023-12-07/sabesp--manifestantes-acusam-deputados-do-pl-de-influenciar-prisoes.html"
+      }
+    ];
+
+    // Função para renderizar reportagens
+    function renderReports() {
+      const container = document.getElementById('reports-container');
+      reports.forEach(report => {
+        const reportElement = document.createElement('div');
+        reportElement.classList.add('report');
+
+        reportElement.innerHTML = `
+          <img class="lazyload" src="${report.image}" alt="Miniatura de ${report.title}" data-src="${report.image}">
+          <h3><a href="${report.link}" target="_blank">${report.title}</a></h3>
+        `;
+        container.appendChild(reportElement);
+      });
+
+      // Adiciona visibilidade para imagens com carregamento lento
+      document.querySelectorAll('.lazyload').forEach(img => {
+        img.onload = () => img.classList.add('visible');
+      });
+    }
+
+    // Função para alternar o menu em dispositivos móveis
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+    }
+
+    // Chama a função para renderizar reportagens ao carregar a página
+    renderReports();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
