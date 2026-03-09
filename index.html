@@ -98,7 +98,7 @@ border:1px solid #252525;
 .report:hover{
 transform:translateY(-6px);
 box-shadow:0 12px 30px rgba(0,0,0,0.5);
-border:1px solid #444;
+border:1px solid #6c4cff;
 }
 
 .report img{
@@ -120,6 +120,18 @@ font-family:'Playfair Display',serif;
 font-size:1.05rem;
 padding:8px 16px 20px 16px;
 line-height:1.4;
+transition:.3s;
+}
+
+/* HOVER COLORIDO */
+
+.report a:hover h3{
+
+background:linear-gradient(90deg,#c084fc,#a78bfa,#7dd3fc,#c084fc);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
 }
 
 .report a{
@@ -156,12 +168,14 @@ gap:15px;
 }
 
 .bio-icons a{
-color:#aaa;
+color:#c4b5fd;
 font-size:1.3rem;
+transition:.25s;
 }
 
 .bio-icons a:hover{
-color:white;
+color:#e9d5ff;
+transform:scale(1.15);
 }
 
 /* FOOTER */
@@ -213,9 +227,7 @@ font-size:2.2rem;
 
 <h1>Bruna Correia</h1>
 
-<p>
-Portifólio de reportagens
-</p>
+<p>Portifólio de reportagens</p>
 
 </div>
 
@@ -350,14 +362,15 @@ title:"Sabesp: manifestantes acusam deputados do PL de influenciar prisões",
 vehicle:"Portal iG",
 image:"https://i0.statig.com.br/bancodeimagens/b0/so/li/b0soliklq9m4ibthrzrevfncr.jpg",
 link:"https://ultimosegundo.ig.com.br/brasil/2023-12-07/sabesp--manifestantes-acusam-deputados-do-pl-de-influenciar-prisoes.html"
-}
+},
 
- {
+{
 title:"Prefeitura de Taboão da Serra reduz em 63% verba para prevenção de desastres naturais",
 vehicle:"Tab Jornalismo",
 image:"https://tabjornalismo.com.br/wp-content/uploads/2024/05/b958db26-fd00-4405-bd71-35a0c1ebc68e-1024x683.jpg",
 link:"https://tabjornalismo.com.br/prefeitura-de-taboao-da-serra-reduz-em-63-verba-para-prevencao-de-desastres-naturais/"
 }
+
 ]
 
 function renderReports(){
