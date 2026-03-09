@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -45,13 +46,13 @@ width:100%;
 }
 
 header h1{
-font-family:'Source Serif 4',serif;
+font-family:'Fraunces',serif;
 text-align:center;
-font-size:1.8rem;
+font-size:1.9rem;
 font-weight:600;
 }
 
-/* layout principal */
+/* layout */
 
 main{
 max-width:1100px;
@@ -77,13 +78,13 @@ gap:25px;
 border:1px solid #ececec;
 border-radius:6px;
 overflow:hidden;
-transition:0.2s;
 background:white;
+transition:0.2s;
 }
 
 .report:hover{
 transform:translateY(-3px);
-box-shadow:0 4px 10px rgba(0,0,0,0.05);
+box-shadow:0 5px 12px rgba(0,0,0,0.06);
 }
 
 .report img{
@@ -92,15 +93,25 @@ height:160px;
 object-fit:cover;
 }
 
+.vehicle{
+font-size:0.75rem;
+color:#8a63ff;
+font-weight:600;
+padding:12px 12px 0 12px;
+letter-spacing:0.4px;
+text-transform:uppercase;
+}
+
 .report h3{
 font-size:0.95rem;
-padding:12px;
+padding:6px 12px 14px 12px;
 font-weight:600;
 }
 
 .report a{
 text-decoration:none;
 color:#242424;
+display:block;
 }
 
 .report a:hover{
@@ -111,7 +122,7 @@ color:#8a63ff;
 
 .bio{
 border:1px solid #ececec;
-padding:20px;
+padding:22px;
 border-radius:6px;
 height:fit-content;
 position:sticky;
@@ -119,14 +130,31 @@ top:120px;
 }
 
 .bio h2{
-font-family:'Source Serif 4',serif;
-margin-bottom:15px;
+font-family:'Fraunces',serif;
 font-size:1.4rem;
+margin-bottom:15px;
 }
 
 .bio p{
 font-size:0.95rem;
 line-height:1.6;
+margin-bottom:20px;
+}
+
+/* social icons bio */
+
+.bio-icons{
+display:flex;
+gap:18px;
+}
+
+.bio-icons a{
+color:#555;
+font-size:1.3rem;
+}
+
+.bio-icons a:hover{
+color:#8a63ff;
 }
 
 /* footer */
@@ -137,23 +165,7 @@ padding:30px;
 text-align:center;
 color:#6b6b6b;
 font-size:0.9rem;
-}
-
-.social-icons{
-display:flex;
-justify-content:center;
-gap:20px;
-list-style:none;
-margin-top:15px;
-}
-
-.social-icons a{
-color:#6b6b6b;
-font-size:1.4rem;
-}
-
-.social-icons a:hover{
-color:#8a63ff;
+margin-top:60px;
 }
 
 /* responsivo */
@@ -213,6 +225,22 @@ brunacorreiade@gmail.com<br>
 brunacorreia@usp.br
 </p>
 
+<div class="bio-icons">
+
+<a href="https://www.instagram.com/brunacorreiade" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/brunacorreiade" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://github.com/brunacorreiade" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+
+</div>
+
 </div>
 
 </div>
@@ -223,16 +251,6 @@ brunacorreia@usp.br
 
 <p>© 2026 Bruna Correia</p>
 
-<ul class="social-icons">
-
-<li><a href="https://www.instagram.com/brunacorreiade" target="_blank"><i class="fab fa-instagram"></i></a></li>
-
-<li><a href="https://www.linkedin.com/in/brunacorreiade" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-
-<li><a href="https://github.com/brunacorreiade" target="_blank"><i class="fab fa-github"></i></a></li>
-
-</ul>
-
 </footer>
 
 <script>
@@ -241,48 +259,56 @@ const reports = [
 
 {
 title:"Alckmin aposta em memes e linguagem jovem para aumentar popularidade",
+vehicle:"iG",
 image:"https://bit.ly/alckminmememememe",
 link:"https://ultimosegundo.ig.com.br/brasil/2024-01-15/com-ajuda-dos-memes--alckmin-viraliza-nas-redes-sociais.html"
 },
 
 {
 title:"Conferências do USP Pensa Brasil atraem público das cinco regiões do País",
+vehicle:"Jornal da USP",
 image:"https://bit.ly/3MtmFCo",
 link:"https://jornal.usp.br/universidade/conferencias-do-usp-pensa-brasil-atraem-publico-das-cinco-regioes-do-pais"
 },
 
 {
 title:"Prefeitura de Taboão da Serra reduz em 63% verba para prevenção de desastres naturais",
+vehicle:"Tab Jornalismo",
 image:"https://bit.ly/4e0VT00",
 link:"https://tabjornalismo.com.br/prefeitura-de-taboao-da-serra-reduz-em-63-verba-para-prevencao-de-desastres-naturais/"
 },
 
 {
 title:"Reforma tributária: entenda o porquê da mudança ser histórica",
+vehicle:"iG Economia",
 image:"https://bit.ly/3XafBQf",
 link:"https://economia.ig.com.br/2023-12-20/reforma-tributaria--entenda-o-porque-da-mudanca-ser-historica.html"
 },
 
 {
 title:"Orgânicos produzidos no Brasil não conseguem suprir demanda interna",
+vehicle:"iG Economia",
 image:"https://bit.ly/4e3DjnZ",
 link:"https://economia.ig.com.br/2023-11-24/organicos-produzidos-no-brasil-nao-conseguem-suprir-demanda-interna.html"
 },
 
 {
 title:"Eu sou só mais uma em um mar de terceirizados no país",
+vehicle:"Jornalismo Júnior",
 image:"https://bit.ly/3X9AHhL",
 link:"https://jornalismojunior.com.br/entenda-terceirizacao-no-brasil/"
 },
 
 {
 title:"Grupo Wagner e Vladimir Putin: um novo capítulo na Guerra da Ucrânia",
+vehicle:"Jornalismo Júnior",
 image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKXCNo8_KjQ3jAFxSTFN-S-1Ab9f-q_XON2w&s",
 link:"https://jornalismojunior.com.br/grupo-wagner-putin-novo-capitulo-guerra-da-ucrania/"
 },
 
 {
 title:"Plano Real faz 30 anos: legado é positivo, mas inflação ainda preocupa",
+vehicle:"iG Economia",
 image:"https://bit.ly/4e1ppTq",
 link:"https://economia.ig.com.br/2024-01-06/plano-real--mesmo-com-legado-positivo--a-inflacao-ainda-preocupa.html"
 }
@@ -305,6 +331,8 @@ div.innerHTML=`
 
 <img loading="lazy" src="${report.image}" alt="${report.title}">
 
+<div class="vehicle">${report.vehicle}</div>
+
 <h3>${report.title}</h3>
 
 </a>
@@ -323,28 +351,3 @@ renderReports();
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
