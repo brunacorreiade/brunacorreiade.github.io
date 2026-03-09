@@ -1,243 +1,189 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Bruna Correia | Portfólio de Jornalismo</title>
-
-<meta name="description" content="Portfólio de reportagens de Bruna Correia, estudante de jornalismo na USP. Trabalhos publicados no iG, Jornal da USP e Jornalismo Júnior.">
-
-<link rel="icon" href="jornal.png">
+<title>Seu Nome — Jornalista</title>
+<meta name="description" content="Portfólio de jornalismo com reportagens publicadas em veículos como iG, Jornal da USP e outros.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-font-family:'Inter',sans-serif;
-background:#ffffff;
-color:#242424;
-line-height:1.6;
+font-family:Inter, sans-serif;
+background:#fafafa;
+color:#333;
+margin:0;
 }
 
-/* header */
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* HEADER */
 
 header{
-background:white;
-border-bottom:1px solid #e6e6e6;
-padding:20px 0;
-position:fixed;
-top:0;
-width:100%;
+background:#f3f0ff;
+border-bottom:1px solid #e4e4e4;
 }
 
 header h1{
-font-family:'Fraunces',serif;
-text-align:center;
-font-size:1.9rem;
-font-weight:600;
+font-family:Fraunces, serif;
+font-size:2.4rem;
+margin:0;
+color:#2c2c2c;
 }
 
-/* layout */
-
-main{
-max-width:1100px;
-margin:120px auto 60px auto;
-padding:0 20px;
+header p{
+margin-top:8px;
+color:#555;
 }
 
-.layout{
+/* GRID */
+
+.grid{
 display:grid;
-grid-template-columns:3fr 1fr;
-gap:40px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+margin-top:40px;
 }
 
-/* reportagens */
+/* CARD */
 
-#reports-container{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px;
-}
-
-.report{
-border:1px solid #ececec;
-border-radius:6px;
-overflow:hidden;
+.card{
 background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 2px 8px rgba(0,0,0,0.06);
 transition:0.2s;
 }
 
-.report:hover{
+.card:hover{
 transform:translateY(-3px);
-box-shadow:0 5px 12px rgba(0,0,0,0.06);
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
 }
 
-.report img{
+.card img{
 width:100%;
 height:160px;
 object-fit:cover;
 }
 
+/* VEÍCULO */
+
 .vehicle{
-font-size:0.75rem;
-color:#8a63ff;
-font-weight:600;
-padding:12px 12px 0 12px;
-letter-spacing:0.4px;
-text-transform:uppercase;
+display:inline-block;
+background:#f3f0ff;
+color:#7c5cff;
+font-size:0.7rem;
+padding:4px 8px;
+margin:12px;
+border-radius:4px;
+font-weight:500;
+letter-spacing:0.3px;
 }
 
-.report h3{
-font-size:0.95rem;
-padding:6px 12px 14px 12px;
-font-weight:600;
+/* TÍTULO */
+
+.card h3{
+font-family:Fraunces, serif;
+font-size:1.05rem;
+line-height:1.4;
+padding:0 12px 16px 12px;
+margin:0;
 }
 
-.report a{
-text-decoration:none;
-color:#242424;
-display:block;
-}
+/* SOBRE */
 
-.report a:hover{
-color:#8a63ff;
-}
-
-/* bio */
-
-.bio{
-border:1px solid #ececec;
-padding:22px;
-border-radius:6px;
-height:fit-content;
-position:sticky;
-top:120px;
-}
-
-.bio h2{
-font-family:'Fraunces',serif;
-font-size:1.4rem;
-margin-bottom:15px;
-}
-
-.bio p{
-font-size:0.95rem;
-line-height:1.6;
-margin-bottom:20px;
-}
-
-/* social icons bio */
-
-.bio-icons{
-display:flex;
-gap:18px;
-}
-
-.bio-icons a{
-color:#555;
-font-size:1.3rem;
-}
-
-.bio-icons a:hover{
-color:#8a63ff;
-}
-
-/* footer */
-
-footer{
-border-top:1px solid #e6e6e6;
-padding:30px;
-text-align:center;
-color:#6b6b6b;
-font-size:0.9rem;
+.about{
+display:grid;
+grid-template-columns:1fr 280px;
+gap:40px;
 margin-top:60px;
 }
 
-/* responsivo */
-
-@media(max-width:900px){
-
-.layout{
-grid-template-columns:1fr;
-}
-
 .bio{
-position:relative;
-top:auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
 
-#reports-container{
-grid-template-columns:repeat(2,1fr);
+.bio h2{
+font-family:Fraunces;
+margin-top:0;
 }
 
+/* SOCIAL */
+
+.social{
+margin-top:16px;
+display:flex;
+gap:14px;
 }
 
-@media(max-width:600px){
-
-#reports-container{
-grid-template-columns:1fr;
+.social a{
+text-decoration:none;
+font-size:1.4rem;
 }
 
+/* FOOTER */
+
+footer{
+margin-top:80px;
+padding:30px;
+text-align:center;
+font-size:0.9rem;
+color:#777;
+border-top:1px solid #e4e4e4;
 }
 
 </style>
-
 </head>
+
 
 <body>
 
 <header>
-<h1>Portfólio de reportagens</h1>
+<div class="container">
+<h1>Seu Nome</h1>
+<p>Jornalista</p>
+</div>
 </header>
 
-<main>
 
-<div class="layout">
+<div class="container">
 
-<div id="reports-container"></div>
+<div class="grid" id="reports"></div>
+
+
+<div class="about">
 
 <div class="bio">
 
 <h2>Sobre mim</h2>
 
 <p>
-Meu nome é Bruna Correia e sou estudante de jornalismo na Universidade de São Paulo (USP). Produzo reportagens sobre política, economia e tecnologia, com interesse em jornalismo investigativo e análise de dados.
-<br><br>
-Este site reúne alguns dos meus trabalhos publicados em veículos como iG, Jornal da USP e Jornalismo Júnior.
-<br><br>
-Contato:<br>
-brunacorreiade@gmail.com<br>
-brunacorreia@usp.br
+Jornalista com experiência em reportagem, análise política e produção de conteúdo.
 </p>
 
-<div class="bio-icons">
+<p>
+Já publiquei em veículos como iG, Jornal da USP e outros.
+</p>
 
-<a href="https://www.instagram.com/brunacorreiade" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
+<div class="social">
 
-<a href="https://www.linkedin.com/in/brunacorreiade" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
-
-<a href="https://github.com/brunacorreiade" target="_blank">
-<i class="fab fa-github"></i>
-</a>
+<a href="#">🐙</a>
+<a href="#">📸</a>
+<a href="#">💼</a>
 
 </div>
 
@@ -245,85 +191,51 @@ brunacorreia@usp.br
 
 </div>
 
-</main>
+</div>
+
 
 <footer>
-
-<p>© 2026 Bruna Correia</p>
-
+© 2026 — Seu Nome
 </footer>
+
+
 
 <script>
 
-const reports = [
+const reports=[
 
 {
 title:"Alckmin aposta em memes e linguagem jovem para aumentar popularidade",
 vehicle:"iG",
-image:"https://bit.ly/alckminmememememe",
-link:"https://ultimosegundo.ig.com.br/brasil/2024-01-15/com-ajuda-dos-memes--alckmin-viraliza-nas-redes-sociais.html"
+image:"https://picsum.photos/500/300",
+link:"#"
 },
 
 {
-title:"Conferências do USP Pensa Brasil atraem público das cinco regiões do País",
+title:"Conferências do USP Pensa Brasil atraem público das cinco regiões",
 vehicle:"Jornal da USP",
-image:"https://bit.ly/3MtmFCo",
-link:"https://jornal.usp.br/universidade/conferencias-do-usp-pensa-brasil-atraem-publico-das-cinco-regioes-do-pais"
+image:"https://picsum.photos/500/301",
+link:"#"
 },
 
 {
-title:"Prefeitura de Taboão da Serra reduz em 63% verba para prevenção de desastres naturais",
-vehicle:"Tab Jornalismo",
-image:"https://bit.ly/4e0VT00",
-link:"https://tabjornalismo.com.br/prefeitura-de-taboao-da-serra-reduz-em-63-verba-para-prevencao-de-desastres-naturais/"
-},
-
-{
-title:"Reforma tributária: entenda o porquê da mudança ser histórica",
+title:"Reforma tributária: entenda por que mudança é histórica",
 vehicle:"iG Economia",
-image:"https://bit.ly/3XafBQf",
-link:"https://economia.ig.com.br/2023-12-20/reforma-tributaria--entenda-o-porque-da-mudanca-ser-historica.html"
-},
-
-{
-title:"Orgânicos produzidos no Brasil não conseguem suprir demanda interna",
-vehicle:"iG Economia",
-image:"https://bit.ly/4e3DjnZ",
-link:"https://economia.ig.com.br/2023-11-24/organicos-produzidos-no-brasil-nao-conseguem-suprir-demanda-interna.html"
-},
-
-{
-title:"Eu sou só mais uma em um mar de terceirizados no país",
-vehicle:"Jornalismo Júnior",
-image:"https://bit.ly/3X9AHhL",
-link:"https://jornalismojunior.com.br/entenda-terceirizacao-no-brasil/"
-},
-
-{
-title:"Grupo Wagner e Vladimir Putin: um novo capítulo na Guerra da Ucrânia",
-vehicle:"Jornalismo Júnior",
-image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKXCNo8_KjQ3jAFxSTFN-S-1Ab9f-q_XON2w&s",
-link:"https://jornalismojunior.com.br/grupo-wagner-putin-novo-capitulo-guerra-da-ucrania/"
-},
-
-{
-title:"Plano Real faz 30 anos: legado é positivo, mas inflação ainda preocupa",
-vehicle:"iG Economia",
-image:"https://bit.ly/4e1ppTq",
-link:"https://economia.ig.com.br/2024-01-06/plano-real--mesmo-com-legado-positivo--a-inflacao-ainda-preocupa.html"
+image:"https://picsum.photos/500/302",
+link:"#"
 }
 
 ];
 
-function renderReports(){
 
-const container=document.getElementById("reports-container");
+const container=document.getElementById("reports");
+
 
 reports.forEach(report=>{
 
 const div=document.createElement("div");
 
-div.classList.add("report");
+div.className="card";
 
 div.innerHTML=`
 
@@ -342,10 +254,6 @@ div.innerHTML=`
 container.appendChild(div);
 
 });
-
-}
-
-renderReports();
 
 </script>
 
