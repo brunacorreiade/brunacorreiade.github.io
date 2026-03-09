@@ -9,15 +9,6 @@
 
 <meta name="description" content="Portfólio de reportagens de Bruna Correia, estudante de jornalismo na USP. Trabalhos publicados no iG, Jornal da USP e Jornalismo Júnior.">
 
-<meta name="author" content="Bruna Correia">
-
-<meta property="og:title" content="Bruna Correia | Portfólio de Jornalismo">
-<meta property="og:description" content="Reportagens sobre política, economia e tecnologia.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="jornal.png">
-
-<meta name="twitter:card" content="summary_large_image">
-
 <link rel="icon" href="jornal.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +30,7 @@ body{
 font-family:'Inter',sans-serif;
 background:#ffffff;
 color:#242424;
-line-height:1.7;
+line-height:1.6;
 }
 
 /* header */
@@ -60,53 +51,50 @@ font-size:1.8rem;
 font-weight:600;
 }
 
-/* layout */
+/* layout principal */
 
 main{
-max-width:860px;
+max-width:1100px;
 margin:120px auto 60px auto;
 padding:0 20px;
 }
 
-.section{
-margin-bottom:60px;
+.layout{
+display:grid;
+grid-template-columns:3fr 1fr;
+gap:40px;
 }
 
-.section h2{
-font-family:'Source Serif 4',serif;
-font-size:1.6rem;
-margin-bottom:25px;
-}
-
-/* reports */
+/* reportagens */
 
 #reports-container{
-display:flex;
-flex-direction:column;
-gap:28px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
 }
 
 .report{
-display:flex;
-gap:18px;
-padding-bottom:22px;
-border-bottom:1px solid #ececec;
+border:1px solid #ececec;
+border-radius:6px;
+overflow:hidden;
 transition:0.2s;
+background:white;
 }
 
 .report:hover{
-transform:translateY(-2px);
+transform:translateY(-3px);
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
 .report img{
-width:160px;
-height:100px;
+width:100%;
+height:160px;
 object-fit:cover;
-border-radius:4px;
 }
 
 .report h3{
-font-size:1.1rem;
+font-size:0.95rem;
+padding:12px;
 font-weight:600;
 }
 
@@ -119,10 +107,26 @@ color:#242424;
 color:#8a63ff;
 }
 
-/* about */
+/* bio */
 
-#contact p{
-max-width:650px;
+.bio{
+border:1px solid #ececec;
+padding:20px;
+border-radius:6px;
+height:fit-content;
+position:sticky;
+top:120px;
+}
+
+.bio h2{
+font-family:'Source Serif 4',serif;
+margin-bottom:15px;
+font-size:1.4rem;
+}
+
+.bio p{
+font-size:0.95rem;
+line-height:1.6;
 }
 
 /* footer */
@@ -152,17 +156,29 @@ font-size:1.4rem;
 color:#8a63ff;
 }
 
-/* mobile */
+/* responsivo */
 
-@media(max-width:700px){
+@media(max-width:900px){
 
-.report{
-flex-direction:column;
+.layout{
+grid-template-columns:1fr;
 }
 
-.report img{
-width:100%;
-height:200px;
+.bio{
+position:relative;
+top:auto;
+}
+
+#reports-container{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+#reports-container{
+grid-template-columns:1fr;
 }
 
 }
@@ -179,13 +195,11 @@ height:200px;
 
 <main>
 
-<section id="reports" class="section">
+<div class="layout">
 
 <div id="reports-container"></div>
 
-</section>
-
-<section id="contact" class="section">
+<div class="bio">
 
 <h2>Sobre mim</h2>
 
@@ -194,16 +208,20 @@ Meu nome é Bruna Correia e sou estudante de jornalismo na Universidade de São 
 <br><br>
 Este site reúne alguns dos meus trabalhos publicados em veículos como iG, Jornal da USP e Jornalismo Júnior.
 <br><br>
-Contato: brunacorreiade@gmail.com | brunacorreia@usp.br
+Contato:<br>
+brunacorreiade@gmail.com<br>
+brunacorreia@usp.br
 </p>
 
-</section>
+</div>
+
+</div>
 
 </main>
 
 <footer>
 
-<p>© 2024 Bruna Correia</p>
+<p>© 2026 Bruna Correia</p>
 
 <ul class="social-icons">
 
@@ -258,12 +276,6 @@ link:"https://jornalismojunior.com.br/entenda-terceirizacao-no-brasil/"
 },
 
 {
-title:"Burocracia é principal barreira para produção de orgânicos no Brasil",
-image:"https://www.anf.org.br/wp-content/uploads/2024/08/feira.webp",
-link:"https://www.anf.org.br/burocracia-e-principal-barreira-para-producao-de-organicos-no-brasil/"
-},
-
-{
 title:"Grupo Wagner e Vladimir Putin: um novo capítulo na Guerra da Ucrânia",
 image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKXCNo8_KjQ3jAFxSTFN-S-1Ab9f-q_XON2w&s",
 link:"https://jornalismojunior.com.br/grupo-wagner-putin-novo-capitulo-guerra-da-ucrania/"
@@ -283,19 +295,23 @@ const container=document.getElementById("reports-container");
 
 reports.forEach(report=>{
 
-const reportElement=document.createElement("div");
+const div=document.createElement("div");
 
-reportElement.classList.add("report");
+div.classList.add("report");
 
-reportElement.innerHTML=`
+div.innerHTML=`
+
+<a href="${report.link}" target="_blank">
 
 <img loading="lazy" src="${report.image}" alt="${report.title}">
 
-<h3><a href="${report.link}" target="_blank">${report.title}</a></h3>
+<h3>${report.title}</h3>
+
+</a>
 
 `;
 
-container.appendChild(reportElement);
+container.appendChild(div);
 
 });
 
@@ -306,7 +322,6 @@ renderReports();
 </script>
 
 </body>
-
 </html>
 
 
