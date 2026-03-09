@@ -8,7 +8,7 @@
 
 <title>Bruna Correia | Jornalista</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -21,8 +21,8 @@ box-sizing:border-box;
 }
 
 body{
-font-family:'Playfair Display',serif;
-background:#111;
+font-family:'Inter',sans-serif;
+background:linear-gradient(180deg,#0f0f0f,#1a1a1a);
 color:white;
 line-height:1.6;
 }
@@ -35,9 +35,25 @@ border-bottom:1px solid #333;
 }
 
 header h1{
-font-size:2.4rem;
+font-family:'Playfair Display',serif;
+font-size:2.6rem;
 font-weight:700;
-letter-spacing:0.5px;
+}
+
+/* busca */
+
+.search{
+margin-top:25px;
+}
+
+.search input{
+width:100%;
+padding:12px;
+background:#1a1a1a;
+border:1px solid #333;
+color:white;
+border-radius:6px;
+font-size:0.9rem;
 }
 
 /* layout */
@@ -54,6 +70,29 @@ grid-template-columns:3fr 1fr;
 gap:60px;
 }
 
+/* filtros */
+
+.filters{
+display:flex;
+gap:10px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+.filters button{
+background:#1a1a1a;
+border:1px solid #333;
+color:white;
+padding:8px 14px;
+border-radius:20px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.filters button:hover{
+background:#333;
+}
+
 /* reportagens */
 
 #reports-container{
@@ -64,13 +103,22 @@ gap:25px;
 
 .report{
 background:#1a1a1a;
-border-radius:6px;
+border-radius:8px;
 overflow:hidden;
-transition:0.2s;
+transition:all .3s ease;
+border:1px solid #222;
+opacity:0;
+animation:fade .6s forwards;
 }
 
 .report:hover{
-transform:translateY(-5px);
+transform:translateY(-6px) scale(1.02);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+border:1px solid #444;
+}
+
+@keyframes fade{
+to{opacity:1;}
 }
 
 .report img{
@@ -87,7 +135,8 @@ padding:12px 14px 0 14px;
 }
 
 .report h3{
-font-size:1rem;
+font-family:'Playfair Display',serif;
+font-size:1.05rem;
 font-weight:600;
 padding:8px 14px 16px 14px;
 line-height:1.4;
@@ -107,6 +156,7 @@ top:40px;
 }
 
 .bio h2{
+font-family:'Playfair Display',serif;
 font-size:1.4rem;
 font-weight:700;
 margin-bottom:15px;
@@ -175,19 +225,41 @@ grid-template-columns:1fr;
 
 <h1>Bruna Correia</h1>
 
+<div class="search">
+<input type="text" id="searchInput" placeholder="Buscar reportagem...">
+</div>
+
 </header>
 
 <main>
 
 <div class="layout">
 
+<div>
+
+<div class="filters">
+
+<button onclick="filterReports('all')">Todas</button>
+<button onclick="filterReports('Folha')">Folha</button>
+<button onclick="filterReports('Jornal do Campus')">Jornal do Campus</button>
+<button onclick="filterReports('Portal iG')">Portal iG</button>
+<button onclick="filterReports('Tab')">Tab</button>
+
+</div>
+
 <div id="reports-container"></div>
+
+</div>
 
 <div class="bio">
 
 <h2>Sobre mim</h2>
 
 <p>
+
+<strong id="reportCount"></strong> reportagens publicadas
+
+<br><br>
 
 Sou estudante de Jornalismo na Escola de Comunicações e Artes da USP e estagiária da editoria de Especiais da Folha de S.Paulo.
 
@@ -202,9 +274,7 @@ brunacorreia@usp.br
 <div class="bio-icons">
 
 <a href="https://instagram.com/brunacorreiade"><i class="fab fa-instagram"></i></a>
-
 <a href="https://linkedin.com/in/brunacorreiade"><i class="fab fa-linkedin"></i></a>
-
 <a href="https://github.com/brunacorreiade"><i class="fab fa-github"></i></a>
 
 </div>
@@ -304,35 +374,64 @@ link:"https://ultimosegundo.ig.com.br/brasil/2023-12-07/sabesp--manifestantes-ac
 
 ]
 
-function renderReports(){
+function createReport(report){
 
 const container=document.getElementById("reports-container")
-
-reports.forEach(report=>{
 
 const div=document.createElement("div")
 
 div.classList.add("report")
 
 div.innerHTML=`
-
 <a href="${report.link}" target="_blank">
-
 <img src="${report.image}">
-
 <div class="vehicle">${report.vehicle}</div>
-
 <h3>${report.title}</h3>
-
 </a>
-
 `
 
 container.appendChild(div)
 
-})
+}
+
+function renderReports(){
+
+document.getElementById("reports-container").innerHTML=""
+
+reports.forEach(report=>createReport(report))
 
 }
+
+function filterReports(vehicle){
+
+const container=document.getElementById("reports-container")
+
+container.innerHTML=""
+
+const filtered = vehicle==="all"
+? reports
+: reports.filter(r=>r.vehicle.includes(vehicle))
+
+filtered.forEach(report=>createReport(report))
+
+}
+
+document.getElementById("searchInput").addEventListener("keyup",function(){
+
+const value=this.value.toLowerCase()
+
+const filtered=reports.filter(r=>
+r.title.toLowerCase().includes(value) ||
+r.vehicle.toLowerCase().includes(value)
+)
+
+document.getElementById("reports-container").innerHTML=""
+
+filtered.forEach(report=>createReport(report))
+
+})
+
+document.getElementById("reportCount").innerText=reports.length
 
 renderReports()
 
