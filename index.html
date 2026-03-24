@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -227,7 +228,7 @@ font-size:2.2rem;
 
 <h1>Bruna Correia</h1>
 
-<p>Portifólio de reportagens</p>
+<p>Portfólio de reportagens</p>
 
 </div>
 
@@ -377,18 +378,21 @@ vehicle:"Jornalismo Júnior",
 image:"https://jornalismojunior.com.br/wp-content/uploads/2023/11/469ae501-ba66-4fe9-93ec-485b6d1e8879-1024x682.jpg",
 link:"https://jornalismojunior.com.br/pesquisa-mostra-solucoes-ineficientes-do-governo-em-meio-ao-crescente-conflito-por-acesso-a-agua/"
 },
+
 {
 title:"Instrumento do IBGE pode auxiliar na gestão de recursos hídricos, aponta estudo",
 vehicle:"Jornalismo Júnior",
-image:"https://jornalismojunior.com.br/wp-content/webp-express/webp-images/uploads/2023/11/6753f696-fbcc-4b06-bb09-7287ccb167ab-1024x576.jpg.webp",
+image:"https://jornalismojunior.com.br/wp-content/uploads/2023/11/6753f696-fbcc-4b06-bb09-7287ccb167ab-1024x576.jpg",
 link:"https://jornalismojunior.com.br/instrumento-do-ibge-pode-auxiliar-na-gestao-de-recursos-hidricos-aponta-estudo/"
 },
-  {
+
+{
 title:"Pesquisadores de Ciência Política comentam sobre eleições 2022",
 vehicle:"FFLCH USP",
 image:"https://www.fflch.usp.br/sites/fflch.usp.br/files/inline-images/Pra%C3%A7a%20dos%20Tr%C3%AAs%20Poderes.png",
 link:"https://www.fflch.usp.br/45681"
 }
+
 ]
 
 function renderReports(){
@@ -403,9 +407,9 @@ div.classList.add("report")
 
 div.innerHTML=`
 
-<a href="${report.link}" target="_blank">
+<a href="${report.link}" target="_blank" rel="noopener noreferrer">
 
-<img src="${report.image}">
+<img src="${report.image}" alt="${report.title}">
 
 <div class="vehicle">${report.vehicle}</div>
 
